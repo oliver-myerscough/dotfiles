@@ -2,6 +2,7 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Layout.NoBorders
 import XMonad.Prompt
+import XMonad.Prompt.Ssh
 import XMonad.Layout.WorkspaceDir
 import qualified Data.Map as M
 
@@ -39,7 +40,8 @@ myLayoutHook
 
 myKeys (XConfig {XMonad.modMask = modm}) 
   = M.fromList [ 
-    ((modm .|. shiftMask, xK_x     ), changeDir defaultXPConfig)
+    ((modm .|. shiftMask, xK_x     ), changeDir defaultXPConfig),
+    ((modm .|. shiftMask, xK_s     ), sshPrompt defaultXPConfig)
   ]
   
 myWorkspaces = map show [1..9]
