@@ -1,1 +1,0 @@
-/home/oliver/vimprobable/config.h
