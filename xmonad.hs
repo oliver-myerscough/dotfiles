@@ -1,24 +1,41 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
+import XMonad.Util.Loggers
 import XMonad.Layout.NoBorders
 import XMonad.Prompt
 import XMonad.Prompt.Ssh
 import XMonad.Layout.WorkspaceDir
+import Text.Printf
 import qualified Data.Map as M
 
 -- The main function.
-main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
+main = xmonad 
+        =<< bottomBar 
+        =<< topBar myConfig
 
--- Command to launch the bar.
-myBar = "xmobar"
+topBar = statusBar "xmobar" topPP hideBarKey 
+bottomBar = statusBar "xmobar -b .xmobar-bottomrc" bottomPP hideBarKey 
 
 -- Custom PP, configure it as you like. It determines what is being written to the bar.
-myPP = xmobarPP { 
-  ppCurrent = xmobarColor "#429942" "" . wrap "<" ">"
+topPP = xmobarPP
+bottomPP = nullPP 
+  
+-- to extend logging
+loggerPP = nullPP {
+  ppExtras = [ battery ]
+}
+
+-- pretty printer which cuts input
+nullPP = xmobarPP {
+  ppCurrent = const "",
+  ppVisible = const "",
+  ppHidden = const "",
+  ppTitle = const "",
+  ppLayout = const ""
 }
 
 -- Key binding to toggle the gap for the bar.
-toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
+hideBarKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 myConfig = defaultConfig {
   terminal = "xterm",
