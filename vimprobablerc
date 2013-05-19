@@ -1,1 +1,3 @@
-/home/oliver/.config/vimprobable/vimprobablerc
+searchengine    j     http://www.google.com/search?hl=en&source=hp&ie=ISO-8859-l&q=%s+site:http://docs.oracle.com/javase/7/docs/api/
+searchengine    mdn   http://www.google.com/search?hl=en&source=hp&ie=ISO-8859-l&q=%s+site:http://developer.mozilla.org/
+searchengine    h     http://www.google.com/search?hl=en&source=hp&ie=ISO-8859-l&q=%s+site:http://haskell.org/
