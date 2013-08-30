@@ -38,7 +38,7 @@ nullPP = xmobarPP {
 hideBarKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 myConfig = defaultConfig {
-  terminal = "xterm",
+  terminal = "sakura",
   workspaces = myWorkspaces,
   layoutHook = myLayoutHook, 
   logHook = myLogHook,
