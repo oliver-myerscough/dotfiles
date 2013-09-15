@@ -157,12 +157,12 @@ PROMPT_MPC="echo \$(mpc current)"
 
 export PROMPT_COMMAND=rebuild_prompt
 
-On_Blue=""
-On_White=""
-On_Red=""
-Color_Off=""
-IBlue=""
+#On_Blue=""
+#On_White=""
+#On_Red=""
+#Color_Off=""
+#IBlue=""
 
-export PS1="\n$On_Blue\u$Color_Off@$IBlue$On_White\h$Color_Off $On_Blue\D{%c}$Color_Off $On_Blue\j jobs$Color_Off $On_Blue\$prompt_mpcline$Color_Off\n$On_Red\$prompt_gitline$Color_Off$On_Blue\w$Color_Off \$$Color_Off "
+export PS1="\u@\h \D{%c} \j jobs \$prompt_mpcline\n \$prompt_gitline \w \$ "
 
 
