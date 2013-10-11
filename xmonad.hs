@@ -5,6 +5,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Prompt
 import XMonad.Prompt.Ssh
 import XMonad.Layout.WorkspaceDir
+import XMonad.Config.Gnome
 import Text.Printf
 import qualified Data.Map as M
 
