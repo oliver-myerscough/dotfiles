@@ -1,6 +1,5 @@
 set nocompatible
 
-
 set ts=2 " tab is 2 spaces
 set number " show line numbers
 set expandtab "
@@ -25,25 +24,18 @@ map <C-l> <C-w>l
 :nmap j gj
 :nmap k gk
 
-if has('cscope')
-  set cscopetag cscopeverbose
-
-  if has('quickfix')
-    set cscopequickfix=s-,c-,d-,i-,t-,e-
-  endif
-
-  cnoreabbrev csa cs add
-  cnoreabbrev csf cs find
-  cnoreabbrev csk cs kill
-  cnoreabbrev csr cs reset
-  cnoreabbrev css cs show
-  cnoreabbrev csh cs help
-
-  command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
-endif
-
-
-execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+call plug#begin('~/.vim/plugged')
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'klen/python-mode'
+" Plug 'alfredodeza/pytest.vim'
+Plug 'Valloric/YouCompleteMe'
+
+call plug#end()
+
+let g:pymode_folding=0
+let g:pymode_rope_complete_on_dot = 0
