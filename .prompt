@@ -78,7 +78,6 @@ On_IWhite='\[\e[0;107m\]'   # White
 # awesome prompt
 
 prompt_gitline=""
-prompt_mpcline=""
 
 function git_test
 {
@@ -103,11 +102,6 @@ function PROMPT_git_status_func
   git_test '^ U' "unmerged" "$git_status"
   git_test '^??' "untracked" "$git_status"
   echo " "
-}
-
-function prompt_mpc
-{
-  prompt_mpcline=$(mpc current)
 }
 
 
@@ -147,15 +141,12 @@ function rebuild_prompt
 
   #check_last
 
-  prompt_mpc
   prompt_git
 
 }
 
 
 PROMPT_git_status="echo \$(PROMPT_git_status_func)"
-
-PROMPT_MPC="echo \$(mpc current)"
 
 export PROMPT_COMMAND=rebuild_prompt
 
@@ -165,6 +156,6 @@ export PROMPT_COMMAND=rebuild_prompt
 #Color_Off=""
 #IBlue=""
 
-export PS1="$Red\u@\h \D{%c} \j jobs$Color_Off \$prompt_mpcline\n $On_Red\$prompt_gitline$Color_Off \w \$ "
+export PS1="\u@\h \w $Red\$prompt_gitline$Color_Off "
 
 
